@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/mjmorales/doan/compare/v1.0.1...v1.1.0) (2023-01-08)
+
+
+### Features
+
+* :sparkles: --init now deploys ansible repo and starts a single agent run ([8f5c53a](https://github.com/mjmorales/doan/commit/8f5c53a5408b201f59331b24d68b950c7b7eb2e3))
+
 ## [1.0.1](https://github.com/mjmorales/doan/compare/v1.0.0...v1.0.1) (2023-01-08)
 
 

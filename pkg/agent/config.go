@@ -20,6 +20,7 @@ type CLIFlags struct {
 	DaemonInterval     string
 	ConfigFilePath     string
 	Version            bool
+	LogFile            string
 }
 
 // AgentConfig is the configuration for the agent
@@ -31,6 +32,7 @@ type AgentConfig struct {
 	AnsibleNameSpace   string `yaml:"ansible_namespace"`
 	DaemonInterval     string `yaml:"daemon_interval"`
 	Daemon             bool   `yaml:"daemon"`
+	LogFile            string `yaml:"logfile"`
 }
 
 func (c *AgentConfig) WithConfigFromFile(configFilePath string) *AgentConfig {
@@ -62,5 +64,7 @@ func (c *AgentConfig) WithConfigFromCLI(agentFlags CLIFlags) *AgentConfig {
 	c.AnsibleNameSpace = agentFlags.AnsibleNameSpace
 	c.DaemonInterval = agentFlags.DaemonInterval
 	c.Daemon = agentFlags.Daemon
+	c.LogFile = agentFlags.LogFile
+
 	return c
 }

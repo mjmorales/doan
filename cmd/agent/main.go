@@ -24,6 +24,7 @@ func ParseFlags() agent.CLIFlags {
 	daemonIntervalPtr := flag.String("daemon-interval", "1m", "interval string to run the daemon (default: 1m)")
 	configFilePathPtr := flag.String("config-file-path", "", "path to the config file (default: \"\")")
 	versionPtr := flag.Bool("version", false, "print the version and exit (default: false)")
+	logFilePtr := flag.String("logfile", "", "path to the log file (default: \"\")")
 
 	flag.Parse()
 	agentFlags := agent.CLIFlags{
@@ -38,14 +39,10 @@ func ParseFlags() agent.CLIFlags {
 		DaemonInterval:     *daemonIntervalPtr,
 		ConfigFilePath:     *configFilePathPtr,
 		Version:            *versionPtr,
+		LogFile:            *logFilePtr,
 	}
 
 	return agentFlags
-}
-
-func init() {
-	// set the global log configuration
-	logger.SetGlobalLogConfig()
 }
 
 func main() {
@@ -64,6 +61,11 @@ func main() {
 	} else {
 		log.Info().Msg("loading agent config from CLI")
 		agentConfig = agentConfig.WithConfigFromCLI(agentFlags)
+	}
+
+	// set the log file if the logfile flag is set
+	if agentFlags.LogFile != "" {
+		logger.SetGlobalLogConfig(*agentConfig)
 	}
 
 	// initialize the agent if the init flag is set

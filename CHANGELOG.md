@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mjmorales/doan/compare/v1.1.0...v1.1.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* :bug: added missing agent config to init call ([3de7298](https://github.com/mjmorales/doan/commit/3de729890a986916bfe4dece015acdf81d93ad4a))
+
 ## [1.1.0](https://github.com/mjmorales/doan/compare/v1.0.1...v1.1.0) (2023-01-08)
 
 

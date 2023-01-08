@@ -32,4 +32,4 @@ build-deb: build-binary
 .PHONY: publish-deb
 publish-deb: build-deb
 	@echo "Publishing deb package to artifactory"
-	curl -H "X-JFrog-Art-Api:${ACCESS_TOKEN}" -X PUT "$(REPO_URL)/artifactory/default-debian-local/pool/$(BINARY_NAME)-$(VERSION)-$(GOOS)-$(GOARCH).deb;deb.distribution=$(GOOS);deb.component=$(BINARY_NAME);deb.architecture=$(GOARCH)" -T release/$(BINARY_NAME)-$(VERSION)-$(GOOS)-$(GOARCH).deb
+	curl -H "X-JFrog-Art-Api:${ACCESS_TOKEN}" -XPUT "${JFROG_URL}/artifactory/default-debian-local/pool/$(BINARY_NAME)-$(VERSION)-$(GOOS)-$(GOARCH).deb;deb.distribution=$(GOOS);deb.component=$(BINARY_NAME);deb.architecture=$(GOARCH)" -T release/$(BINARY_NAME)-$(VERSION)-$(GOOS)-$(GOARCH).deb

@@ -1,6 +1,6 @@
 # MAKEFILE FOR DOAN
 
-VERSION=$(shell cat .release-please-manifest.json | jq -r '."."')
+VERSION=$(shell git tag --sort=committerdate | grep -E '[0-9]' | tail -1 | cut -b 2-7)
 BINARY_NAME=doan
 GOOS=linux
 GOARCH=amd64
@@ -12,12 +12,12 @@ REPO_URL=https://github.com/mjmorales/doan
 .PHONY: build-binary
 build-binary:
 	@echo "Building $(BINARY_OUTPUT) with version $(VERSION) "
-	@go build -o $(BINARY_OUTPUT) -ldflags "-X github.com/mjmorales/doan/pkg/agent.version=$(VERSION)" $(TARGET)
+	@go build -o $(BINARY_OUTPUT) -ldflags "-X github.com/mjmorales/doan/pkg/agent.Version=$(VERSION)" $(TARGET)
 
 .PHONY: build-deb
 build-deb: build-binary
 	@echo "Building deb package"
-	rm -rf build && mkdir -p build
+	rm release/*.deb
 	fpm \
 		-s dir -t deb \
 		-C ./bin/$(GOOS)/$(GOARCH) \

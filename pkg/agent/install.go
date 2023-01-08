@@ -31,8 +31,18 @@ func initDir() error {
 	return nil
 }
 
-func Init() error {
+func Init(agentConfig AgentConfig) error {
 	err := initDir()
+	if err != nil {
+		return err
+	}
+
+	err = DeployRepo(agentConfig)
+	if err != nil {
+		return err
+	}
+
+	err = RunActiveAnsiblePlaybook(agentConfig)
 	if err != nil {
 		return err
 	}

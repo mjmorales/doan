@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/mjmorales/doan/compare/v1.2.0...v1.2.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* :bug: removed bad jfrog url and replaced with envvar ([63f2e20](https://github.com/mjmorales/doan/commit/63f2e20061e05ab8d34e8e47d5cc9b955cfdd02c))
+
 ## [1.2.0](https://github.com/mjmorales/doan/compare/v1.1.1...v1.2.0) (2023-01-08)
 
 

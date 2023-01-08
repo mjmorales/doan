@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/mjmorales/doan/compare/v1.1.1...v1.2.0) (2023-01-08)
+
+
+### Features
+
+* :monocle_face: added logfile support with config handling and fallback ([6ca90d2](https://github.com/mjmorales/doan/commit/6ca90d2ac203072786adc895944260e26cee86b5))
+
 ## [1.1.1](https://github.com/mjmorales/doan/compare/v1.1.0...v1.1.1) (2023-01-08)
 
 

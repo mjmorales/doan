@@ -5,6 +5,19 @@
 
 ### Features
 
+* :tada: migrated project from previous repository due to release-please bug ([6308ee7](https://github.com/mjmorales/doan/commit/6308ee71efedd4226737c8bca4faee9e3d4ba5a6))
+
+
+### Bug Fixes
+
+* **ghactions:** :bug: update release-type to go instead of node ([babf0ea](https://github.com/mjmorales/doan/commit/babf0eac9078c038e1d67cfc3557a77e085d8b17))
+* **ghactions:** :bug: update triggering branch to master instead of main ([3c5e6c8](https://github.com/mjmorales/doan/commit/3c5e6c820a84921b3b78decda5d186c9709ed771))
+
+## 1.0.0 (2023-01-08)
+
+
+### Features
+
 * :beers: started ansible agent code ([d14954f](https://github.com/mjmorales/doan/commit/d14954fbf498c25519d79814add3141699e414f5))
 * :sparkles: added check to DeployRepo for matching md5 sums of bundles ([ec6d2df](https://github.com/mjmorales/doan/commit/ec6d2dfbd8dcd5d31aa92880c70e60f2cac274c1))
 * :sparkles: added Daemon mode support for agent ([ddb4cb3](https://github.com/mjmorales/doan/commit/ddb4cb302978d87f5c8042f1f340b0633433a183))

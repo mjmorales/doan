@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/mjmorales/doan/compare/v1.2.1...v1.2.2) (2023-01-08)
+
+
+### Bug Fixes
+
+* :bug: corrected global file logger when logfile flag chosen ([aed9d85](https://github.com/mjmorales/doan/commit/aed9d85f3d7ba8e0ce3f026ed132f243f742bde6))
+
 ## [1.2.1](https://github.com/mjmorales/doan/compare/v1.2.0...v1.2.1) (2023-01-08)
 
 

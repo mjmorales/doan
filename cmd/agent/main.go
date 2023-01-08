@@ -69,7 +69,7 @@ func main() {
 	// initialize the agent if the init flag is set
 	if agentFlags.Init {
 		log.Info().Msg("initializing agent")
-		err := agent.Init()
+		err := agent.Init(*agentConfig)
 		if err != nil {
 			log.Fatal().Err(err).Msg("failed to initialize agent")
 		}

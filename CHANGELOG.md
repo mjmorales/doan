@@ -1,0 +1,14 @@
+# Changelog
+
+## 1.0.0 (2023-01-08)
+
+
+### Features
+
+* :beers: started ansible agent code ([d14954f](https://github.com/mjmorales/doan/commit/d14954fbf498c25519d79814add3141699e414f5))
+* :sparkles: added check to DeployRepo for matching md5 sums of bundles ([ec6d2df](https://github.com/mjmorales/doan/commit/ec6d2dfbd8dcd5d31aa92880c70e60f2cac274c1))
+* :sparkles: added Daemon mode support for agent ([ddb4cb3](https://github.com/mjmorales/doan/commit/ddb4cb302978d87f5c8042f1f340b0633433a183))
+* :sparkles: added support for reading from yaml config ([c999bb0](https://github.com/mjmorales/doan/commit/c999bb05f9706d7e94da116e7f95e78fe5fb6280))
+* :sparkles: added symlinking for active directory ([21f4754](https://github.com/mjmorales/doan/commit/21f4754d84bea90782b220a35a3054a95516bdac))
+* :sparkles: fixed tar handling ([d292171](https://github.com/mjmorales/doan/commit/d2921711a0a3d9aaf1e2dd236c2be8e9dbb964b9))
+* :tada: initial commit ([e0bd91e](https://github.com/mjmorales/doan/commit/e0bd91e6d05543a5d00df8f15ca7f57597360efc))

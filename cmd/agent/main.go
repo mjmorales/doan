@@ -63,9 +63,13 @@ func main() {
 		agentConfig = agentConfig.WithConfigFromCLI(agentFlags)
 	}
 
-	// set the log file if the logfile flag is set
-	if agentFlags.LogFile != "" {
-		logger.SetGlobalLogConfig(*agentConfig)
+	logger.SetGlobalLogConfig()
+	if agentConfig.LogFile != "" {
+		f, err := logger.SetLogFile(*agentConfig)
+		if err != nil {
+			log.Fatal().Err(err).Msg("failed to set log file")
+			defer f.Close()
+		}
 	}
 
 	// initialize the agent if the init flag is set

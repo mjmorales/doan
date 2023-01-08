@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/mjmorales/doan/compare/v1.0.0...v1.0.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* :bug: VERSION now pulls from git tag instead of release json ([e575e8e](https://github.com/mjmorales/doan/commit/e575e8e1b76cdc3a07d9e67bba9df3ff6f5a5a41))
+
 ## 1.0.0 (2023-01-08)
 
 

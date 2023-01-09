@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/mjmorales/doan/compare/v1.2.2...v1.3.0) (2023-01-09)
+
+
+### Features
+
+* :sparkles: added support for running playbooks by tag ([c8ff1ff](https://github.com/mjmorales/doan/commit/c8ff1ff64c91c9c43077c641ec47f09f32a031cf))
+
 ## [1.2.2](https://github.com/mjmorales/doan/compare/v1.2.1...v1.2.2) (2023-01-08)
 
 

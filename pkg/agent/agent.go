@@ -2,7 +2,10 @@ package agent
 
 import (
 	"fmt"
+	"io"
+	"net/http"
 	"os/exec"
+	"strings"
 	"sync"
 	"time"
 
@@ -39,10 +42,43 @@ func (r *Runner) Run(agentConfig AgentConfig) {
 	}
 }
 
+func GetDropletTags() ([]string, error) {
+	dropletTags := []string{}
+
+	// get the droplet tags through the DO HTTP API
+	doTagsUrl := "http://169.254.169.254/metadata/v1/tags"
+	resp, err := http.Get(doTagsUrl)
+	if err != nil {
+		return dropletTags, fmt.Errorf("could not get droplet tags: %s", err)
+	}
+
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return dropletTags, fmt.Errorf("could not read droplet tags: %b - %s", resp.StatusCode, err)
+	}
+
+	playbookTags := []string{"base"}
+	dropletTags = strings.Split(string(body), "\n")
+
+	for _, tag := range dropletTags {
+		if strings.Contains(tag, "ansible-") {
+			playbookTags = append(playbookTags, tag)
+		}
+	}
+
+	return playbookTags, nil
+}
+
 // RunActiveAnsiblePlaybook runs localhost inventory
 // on the base.yaml playbook in the active ansible repo
 // RunActiveAnsiblePlaybook returns an error if the ansible run fails
 func RunActiveAnsiblePlaybook(agentConfig AgentConfig) error {
+	tags, err := GetDropletTags()
+	if err != nil {
+		return err
+	}
+
 	ansiblePlayBookCommand := "ansible-playbook"
 	ansiblePlayBookCommandParams := []string{
 		"/var/lib/doan/active/ansible/base.yaml",
@@ -50,6 +86,8 @@ func RunActiveAnsiblePlaybook(agentConfig AgentConfig) error {
 		"/var/lib/doan/active/ansible/inventory.yaml",
 		"--vault-password-file",
 		"~/.vault_pass.txt",
+		"--tags",
+		strings.Join(tags, ","),
 	}
 
 	cmd := exec.Command(
@@ -59,7 +97,7 @@ func RunActiveAnsiblePlaybook(agentConfig AgentConfig) error {
 	cmd.Stdout = log.Logger
 	cmd.Stderr = log.Logger
 
-	err := cmd.Run()
+	err = cmd.Run()
 	if err != nil {
 		return fmt.Errorf("could not run ansible: %s", err)
 	}
